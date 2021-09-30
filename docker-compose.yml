@@ -1,0 +1,12 @@
+version: '3.4'
+services:
+  dev:
+    build:
+      context: .
+      target: builder
+    environment:
+      IM_HOST_URL: "https://ironman-dev-master-api.6c98518e.applatform.net"
+    ports:
+      - '3004:3004'
+    volumes:
+      - './:/app'
