@@ -32,6 +32,12 @@ func TestSprint(t *testing.T) {
 	}{
 		{Input: []string{"1", "2"}, Expected: "[`1`, `2`]"},
 		{Input: []string{"A", "B", "C", "D E F"}, Expected: "[`A`, `B`, `C`, `D E F`]"},
+		{Input: nil, Expected: "<nil>"},
+		{Input: []string{}, Expected: "[]"},
+		{Input: []string{""}, Expected: "[``]"},
+		{Input: []string{"", ""}, Expected: "[``, ``]"},
+		{Input: []string{"", "", ""}, Expected: "[``, ``, ``]"},
+		{Input: make([]string, 10), Expected: "[``, ``, ``, ``, ``, ``, ``, ``, ``, ``]"},
 	}
 
 	for _, test := range tests {
