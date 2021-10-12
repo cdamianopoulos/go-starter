@@ -30,8 +30,8 @@ func TestSprint(t *testing.T) {
 		Input    []string
 		Expected string
 	}{
-		{Input: []string{"1", "2"}, Expected: `["1", "2"]`},
-		{Input: []string{"A", "B", "C", "D E F"}, Expected: `["A", "B", "C", "D E F"]`},
+		{Input: []string{"1", "2"}, Expected: "[`1`, `2`]"},
+		{Input: []string{"A", "B", "C", "D E F"}, Expected: "[`A`, `B`, `C`, `D E F`]"},
 	}
 
 	for _, test := range tests {
