@@ -1,22 +1,21 @@
 package main
 
 import (
-	"fmt"
-	"github.com/go-chi/chi/v5"
-	"github.com/go-chi/chi/v5/middleware"
 	"net/http"
+
+	"go-starter/api"
+	"go-starter/separateRepos/graceful"
+	"go-starter/separateRepos/logger"
+	"go-starter/separateRepos/utl"
 )
 
 func main() {
-	r := chi.NewRouter()
-	r.Use(middleware.Logger)
-	r.Get("/status", func (w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Content-Type", "application/json")
-		_, err := fmt.Fprint(w, `{"status": "healthy"}`)
-		if err != nil {
-			fmt.Printf("writing to stream: %v\n", err)
-		}
+	logger.Init(ApiName)
+	loadConfig("", "config.yml")
+
+	graceful.Server(&http.Server{
+		Addr:              utl.HostPort("", env.Port),
+		Handler:           api.Router(),
+		ReadHeaderTimeout: env.HeaderTimeout,
 	})
-	fmt.Println("Hello, serving on port 3000")
-	http.ListenAndServe(":3000", r)
 }

@@ -1,0 +1,1 @@
+This directory contains utility code that could be reused in other services.
