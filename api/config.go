@@ -60,7 +60,12 @@ func (c *Config) Print() {
 }
 
 // UnmarshalYAML sets default values defined in the Config struct tags before unmarshalling the YAML file.
-// This method is needed because "gopkg.in/yaml.v2" doesn't support the `default` struct tags.
+// This method is needed when:
+// - Loading YAML configuration WITHOUT envconfig.MustProcess or envconfig.Process (which has implemented the default struct tags).
+// - And "gopkg.in/yaml.v3" doesn't support default struct tags (`default:"my_value"`) to load default values,
+//
+// This method is not required when using ONLY config.MustLoadEnvYaml, config.MustLoadYamlEnv, envconfig.Process or envconfig.MustProcess.
+// An alternative to writing this function is to define a variables and hardcode the default values, however the implementation isn't as elegant.
 func (c *Config) UnmarshalYAML(unmarshal func(interface{}) error) (err error) {
 	// Set the default values
 	err = defaults.Set(c)
@@ -69,5 +74,6 @@ func (c *Config) UnmarshalYAML(unmarshal func(interface{}) error) (err error) {
 	}
 
 	type config Config
+	// Converting to a new type to prevent reflect panicking from using an unaddressable value. //stackoverflow.com/a/56080478
 	return unmarshal((*config)(c))
 }
