@@ -5,7 +5,7 @@ package config
 import (
 	"os"
 
-	"gopkg.in/yaml.v2"
+	"gopkg.in/yaml.v3"
 )
 
 // LoadYaml expects parameter obj to be a pointer.
@@ -16,7 +16,7 @@ func LoadYaml(fileName string, obj interface{}) error {
 		return err
 	}
 
-	return yaml.UnmarshalStrict(src, obj)
+	return yaml.Unmarshal(src, obj)
 }
 
 // MustLoadYaml expects parameter obj to be a pointer.
