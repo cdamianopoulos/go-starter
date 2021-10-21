@@ -10,7 +10,7 @@ import (
 	"go-starter/separateRepos/utl"
 )
 
-var env api.Env
+var env api.Config
 
 func main() {
 	logger.Init(api.Name)
