@@ -1,7 +1,6 @@
 package zoo_test
 
 import (
-	"encoding/json"
 	"net/http"
 	"testing"
 
@@ -22,7 +21,7 @@ func TestHandler(t *testing.T) {
 		Visitors  int
 		AnimalQty int `json:"animal_qty"`
 	}
-	assert.Nil(t, json.Unmarshal(rr.Body.Bytes(), &response))
+	testutl.JsonUnmarshal(t, rr.Body.Bytes(), &response)
 
 	assert.Equal(t, "closed", response.Zoo)
 	assert.Equal(t, 11, response.AnimalQty)
