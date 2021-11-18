@@ -96,11 +96,11 @@ func TestMustLoadYaml(t *testing.T) {
 }
 
 func TestMustLoadYamlPanics(t *testing.T) {
-	// Defer is recovering from a panic triggered by MustLoadYaml.
-	defer func() {
-		assert.NotNil(t, recover(), "expected panic")
-	}()
-
-	m := make(map[string]string)
-	MustLoadYaml("z_y_x_w_v", &m)
+	assert.Panics(t,
+		func() {
+			m := map[string]string{}
+			MustLoadYaml("z_y_x_w_v", &m)
+		},
+		"expected MustLoadYaml to panic when provided with invalid YAML",
+	)
 }
