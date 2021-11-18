@@ -29,7 +29,6 @@ func TestOpenQty_Set(t *testing.T) {
 				return
 			}
 		} else {
-
 			// Test nothing is assigned and an error is returned.
 			if !assert.NotNil(t, err, message, i) ||
 				!assert.Equal(t, 0, int(iq), message, i) {
@@ -50,7 +49,6 @@ func TestIdleQty_Set(t *testing.T) {
 				return
 			}
 		} else {
-
 			// Test nothing is assigned and an error is returned.
 			if !assert.NotNil(t, err, message, i) ||
 				!assert.Equal(t, 0, int(iq), message, i) {
