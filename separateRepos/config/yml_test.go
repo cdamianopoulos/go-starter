@@ -11,15 +11,15 @@ func TestLoadYaml(t *testing.T) {
 	const yamlContents = "port: 14556\nnewrelic: abc456"
 
 	f, err := os.CreateTemp("", "")
-	assert.Nil(t, err)
+	assert.NoError(t, err)
 
 	defer os.Remove(f.Name())
 
 	l, err := f.WriteString(yamlContents)
-	assert.Nil(t, err, "failed to write string to temporary file")
+	assert.NoError(t, err, "failed to write string to temporary file")
 	assert.Equal(t, len(yamlContents), l)
 
-	assert.Nil(t, f.Close(), "failed to close file")
+	assert.NoError(t, f.Close(), "failed to close file")
 
 	config := struct {
 		Port     uint16
@@ -27,7 +27,7 @@ func TestLoadYaml(t *testing.T) {
 	}{}
 
 	err = LoadYaml(f.Name(), &config)
-	assert.Nil(t, err, "failed to load YAML config file")
+	assert.NoError(t, err, "failed to load YAML config file")
 
 	assert.Equal(t, uint16(14556), config.Port)
 	assert.Equal(t, "abc456", config.NewRelic)
@@ -37,15 +37,15 @@ func TestLoadYamlEmpty(t *testing.T) {
 	const yamlContents = "::::::::::::::::"
 
 	f, err := os.CreateTemp("", "")
-	assert.Nil(t, err)
+	assert.NoError(t, err)
 
 	defer os.Remove(f.Name())
 
 	l, err := f.WriteString(yamlContents)
-	assert.Nil(t, err, "failed to write string to temporary file")
+	assert.NoError(t, err, "failed to write string to temporary file")
 	assert.Equal(t, len(yamlContents), l)
 
-	assert.Nil(t, f.Close(), "failed to close file")
+	assert.NoError(t, f.Close(), "failed to close file")
 
 	config := struct {
 		Port     uint16
@@ -53,7 +53,7 @@ func TestLoadYamlEmpty(t *testing.T) {
 	}{}
 
 	err = LoadYaml(f.Name(), &config)
-	assert.NotNil(t, err, "failed to load YAML config file")
+	assert.NoError(t, err, "failed to load YAML config file")
 
 	assert.Empty(t, config.Port)
 	assert.Empty(t, config.NewRelic)
@@ -66,7 +66,7 @@ func TestLoadYamlFails(t *testing.T) {
 	}{}
 
 	err := LoadYaml("z_y_x_w_v", &config)
-	assert.NotNil(t, err, "expected LoadYaml() to return an error")
+	assert.Error(t, err, "expected LoadYaml() to return an error")
 	assert.Empty(t, config.Port)
 	assert.Empty(t, config.NewRelic)
 }
@@ -75,15 +75,15 @@ func TestMustLoadYaml(t *testing.T) {
 	const yamlContents = "port: 14556\nnewrelic: abc456"
 
 	f, err := os.CreateTemp("", "")
-	assert.Nil(t, err)
+	assert.NoError(t, err)
 
 	defer os.Remove(f.Name())
 
 	l, err := f.WriteString(yamlContents)
-	assert.Nil(t, err, "failed to write string to temporary file")
+	assert.NoError(t, err, "failed to write string to temporary file")
 	assert.Equal(t, len(yamlContents), l)
 
-	assert.Nil(t, f.Close(), "failed to close file")
+	assert.NoError(t, f.Close(), "failed to close file")
 
 	config := struct {
 		Port     uint16
