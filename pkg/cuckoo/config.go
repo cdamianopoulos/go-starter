@@ -16,7 +16,8 @@ type ClientConfig struct {
 
 type isSandboxEnv bool
 
-func (ise *isSandboxEnv) Set(envName string) error {
-	*ise = envName == "prelive" // Compare sandbox environment name.
+// Set adheres to envconfig.Setter interface.
+func (e *isSandboxEnv) Set(envName string) error {
+	*e = envName == "prelive" // Compare sandbox environment name.
 	return nil
 }
