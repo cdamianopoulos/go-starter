@@ -5,9 +5,8 @@ import (
 	"database/sql"
 	"database/sql/driver"
 	"fmt"
-	"time"
-
 	"go-starter/separateRepos/dbconn"
+	"time"
 )
 
 type Config struct {
@@ -35,7 +34,7 @@ func OpenConnection(config Config) (db *sql.DB, err error) {
 }
 
 // Connect implements the driver.Connector interface.
-func (c Config) Connect(ctx context.Context) (driver.Conn, error) {
+func (c Config) Connect(_ context.Context) (driver.Conn, error) {
 	return nil, nil
 }
 

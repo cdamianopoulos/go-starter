@@ -1,9 +1,10 @@
 package utl
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
 	"time"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestMilliseconds(t *testing.T) {

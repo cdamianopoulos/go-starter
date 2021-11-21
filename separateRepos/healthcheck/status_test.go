@@ -1,12 +1,12 @@
 package healthcheck_test
 
 import (
+	"go-starter/separateRepos/healthcheck"
+	"go-starter/separateRepos/testutl"
 	"net/http"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"go-starter/separateRepos/healthcheck"
-	"go-starter/separateRepos/testutl"
 )
 
 func TestURL(t *testing.T) {

@@ -1,12 +1,12 @@
 package zoo_test
 
 import (
+	"go-starter/api/zoo"
+	"go-starter/separateRepos/testutl"
 	"net/http"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"go-starter/api/zoo"
-	"go-starter/separateRepos/testutl"
 )
 
 func TestURL(t *testing.T) {
