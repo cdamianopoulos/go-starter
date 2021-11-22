@@ -8,6 +8,10 @@ import (
 
 // HostPort joins a host string and port number that can be accepted as an address.
 func HostPort(host string, port uint16) string {
+	if port == 0 {
+		return host + ":"
+	}
+
 	return host + ":" + strconv.FormatUint(uint64(port), 10)
 }
 
