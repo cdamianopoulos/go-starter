@@ -6,6 +6,13 @@ By extracting often repeated & useful code amongst our repositories into a centr
 * A bug found and fixed in one repository can be quickly applied to other repositories by updating the Go module dependencies.
 * A reference for existing code. e.g.: Database connections, email validation, etc.
 
+## Naming convention
+Package names should be:
+* short,
+* rememberable and
+* not collide with common local variables, that would use the package.
+* All lowercase without underscores (Go convention).
+
 ## Keep It Simple Stupid
 * Don't add additional logic to existing functions or methods if it isn't required by all descendants.
   * Instead, **make a copy** and add the additional logic that's required to it. It's better to have a variety of available utilities rather than impacting CPU and/or memory consumption in production.
@@ -15,7 +22,6 @@ By extracting often repeated & useful code amongst our repositories into a centr
 
 ## Before pushing changes
 * Format Go code using [`gofumpt`](https://github.com/mvdan/gofumpt)
+* Lint the code using [`golangci-lint`](https://github.com/golangci/golangci-lint) to discover any additional issues.
 * Check for spelling mistakes grammatical errors in function names, returned values, etc.
   * Goland has a code inspection tool available in the main menu. `Code` > `Inspect Code...` > `Whole project`
-* Lint the code using [`golangci-lint`](https://github.com/golangci/golangci-lint) to discover any additional issues.
-
