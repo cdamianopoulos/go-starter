@@ -4,6 +4,6 @@ package hdr
 // TODO move cnst into a separate Git repository
 
 const (
-	MarketPlaceId = "marketplaceId"
+	MarketplaceId = "marketplaceId"
 	TraceId       = "traceId"
 )
