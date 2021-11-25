@@ -14,7 +14,8 @@ func TestURL(t *testing.T) {
 }
 
 func TestHandler(t *testing.T) {
-	rr, _ := testutl.HandlerFunc(t, zoo.Status, http.MethodGet, zoo.URLPattern, nil, http.StatusOK)
+	rr, ok := testutl.HandlerFunc(t, zoo.Status, http.MethodGet, zoo.URLPattern, "", http.StatusOK)
+	assert.True(t, ok)
 
 	var response struct {
 		Zoo       string

@@ -13,11 +13,19 @@ import (
 // URLPattern is used in router.go
 const URLPattern = "/zoo"
 
+// Zoo represents the zoo structure.
+type Zoo struct {
+	Name      string `json:"closed"`
+	Visitors  string `json:"visitors"`
+	AnimalQty int    `json:"animal_qty"`
+}
+
 // Status returns the status and quantity of animals in the zoo.
 func Status(w http.ResponseWriter, _ *http.Request) {
 	w.Header().Set(hdr.ContentType, mime.JSON)
 
-	_, err := fmt.Fprintf(w, `{"zoo": "closed", "visitors": %d, "animal_qty": 11}`, time.Now().Local().Second())
+	// Hardcode the response for better performance than JSON marshaling.
+	_, err := fmt.Fprintf(w, `{"zoo":"closed","visitors":%d,"animal_qty":11}`, time.Now().Local().Second())
 	if err != nil {
 		logrus.Error("writing to stream:", err)
 	}

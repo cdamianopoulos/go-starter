@@ -14,7 +14,8 @@ func TestURL(t *testing.T) {
 }
 
 func TestHandler(t *testing.T) {
-	rr, _ := testutl.HandlerFunc(t, healthcheck.Status, http.MethodGet, healthcheck.URLPattern, nil, http.StatusOK)
+	rr, ok := testutl.HandlerFunc(t, healthcheck.Status, http.MethodGet, healthcheck.URLPattern, "", http.StatusOK)
 
 	assert.Equal(t, `{"status":"healthy"}`, rr.Body.String())
+	assert.True(t, ok)
 }
