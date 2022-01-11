@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"os"
 	"os/signal"
+	"syscall"
 
 	"github.com/sirupsen/logrus"
 )
@@ -17,7 +18,7 @@ func Server(srv *http.Server) {
 	idleConnectionsClosed := make(chan struct{})
 	go func() {
 		sigint := make(chan os.Signal, 1)
-		signal.Notify(sigint, os.Interrupt)
+		signal.Notify(sigint, os.Interrupt, syscall.SIGTERM)
 		<-sigint
 
 		// When an interrupt signal is received then shut down.
