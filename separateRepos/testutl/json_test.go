@@ -1,10 +1,10 @@
 package testutl_test
 
 import (
-	"go-starter/separateRepos/testutl"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+	"go-starter/separateRepos/testutl"
 )
 
 type animal struct {

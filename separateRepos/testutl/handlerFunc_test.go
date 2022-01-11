@@ -1,11 +1,11 @@
 package testutl
 
 import (
-	"go-starter/api/zoo"
 	"net/http"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+	"go-starter/api/zoo"
 )
 
 func TestHandlerFuncBodyFails(t *testing.T) {

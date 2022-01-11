@@ -5,10 +5,10 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/steinfletcher/apitest"
 	"io/ioutil"
 	"net/http"
-	//"virtual-accounts-api/pkg/httputil"
+
+	"github.com/steinfletcher/apitest"
 )
 
 type ApiError struct {

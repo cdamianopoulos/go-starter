@@ -1,11 +1,11 @@
 package utl_test
 
 import (
-	"go-starter/separateRepos/utl"
 	"math"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+	"go-starter/separateRepos/utl"
 )
 
 func TestHostPort(t *testing.T) {

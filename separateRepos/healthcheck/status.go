@@ -2,11 +2,11 @@ package healthcheck
 
 import (
 	"fmt"
-	"go-starter/separateRepos/cnst/hdr"
-	"go-starter/separateRepos/cnst/mime"
 	"net/http"
 
 	"github.com/sirupsen/logrus"
+	"go-starter/separateRepos/cnst/hdr"
+	"go-starter/separateRepos/cnst/mime"
 )
 
 // URLPattern is used in router.go

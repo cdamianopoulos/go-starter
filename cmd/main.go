@@ -1,12 +1,13 @@
 package main
 
 import (
+	"net/http"
+
 	"go-starter/api"
 	"go-starter/separateRepos/config"
 	"go-starter/separateRepos/graceful"
 	"go-starter/separateRepos/logger"
 	"go-starter/separateRepos/utl"
-	"net/http"
 )
 
 func main() {

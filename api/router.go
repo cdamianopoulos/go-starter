@@ -1,11 +1,10 @@
 package api
 
 import (
-	"go-starter/api/zoo"
-	"go-starter/separateRepos/healthcheck"
-
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
+	"go-starter/api/zoo"
+	"go-starter/separateRepos/healthcheck"
 )
 
 // Router returns a chi Mux server that implements http.Handler.

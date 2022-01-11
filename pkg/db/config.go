@@ -5,8 +5,9 @@ import (
 	"database/sql"
 	"database/sql/driver"
 	"fmt"
-	"go-starter/separateRepos/dbconn"
 	"time"
+
+	"go-starter/separateRepos/dbconn"
 )
 
 type Config struct {

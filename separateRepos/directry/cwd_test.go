@@ -1,11 +1,11 @@
 package directry_test
 
 import (
-	"go-starter/separateRepos/directry"
 	"os"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+	"go-starter/separateRepos/directry"
 )
 
 func TestCwd(t *testing.T) {

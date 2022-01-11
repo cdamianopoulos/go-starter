@@ -2,14 +2,14 @@ package api
 
 import (
 	"fmt"
+	"time"
+
+	"github.com/creasty/defaults"
 	"go-starter/pkg/aws"
 	"go-starter/pkg/cuckoo"
 	"go-starter/pkg/db"
 	"go-starter/pkg/spiderman"
 	"go-starter/separateRepos/utl"
-	"time"
-
-	"github.com/creasty/defaults"
 )
 
 // These constants could be set at compile time.
