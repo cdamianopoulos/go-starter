@@ -1,6 +1,5 @@
 package testutl
 
-// TODO move testutl into a separate Git repository
 import (
 	"fmt"
 	"net/http"

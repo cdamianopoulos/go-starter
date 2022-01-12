@@ -1,7 +1,6 @@
 // Package config implements utility functions for loading configuration data from various sources.
 package config
 
-// TODO move config into a separate Git repository
 import (
 	"os"
 

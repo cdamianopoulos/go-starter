@@ -1,7 +1,6 @@
 // Package graceful implements wrappers which gracefully shutdown when given interrupt signals.
 package graceful
 
-// TODO move graceful into a separate Git repository
 import (
 	"context"
 	"net/http"
