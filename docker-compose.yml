@@ -10,3 +10,14 @@ services:
       - '3004:3004'
     volumes:
       - './:/app'
+  remote-debug:
+    build:
+      context: .
+      dockerfile: Dockerfile.debug
+    environment:
+      IM_HOST_URL: "https://ironman-dev-master-api.6c98518e.applatform.net"
+    cap_add:
+      - SYS_PTRACE
+    ports:
+      - '3004:3004'
+      - '40000:40000'
